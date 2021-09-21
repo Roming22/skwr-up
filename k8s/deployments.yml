@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: up
+  labels:
+    app: up
+  namespace: web
+spec:
+  selector:
+    matchLabels:
+      app: up
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: up
+    spec:
+      containers:
+        - image: k3d-registry.localhost:5000/skwr/web/up:latest
+          imagePullPolicy: Always
+          command: ["/opt/app/bin/run.sh"]
+          name: up

@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: up
+  namespace: web
+spec:
+  selector:
+    app: up
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8000
+      targetPort: 8000
