@@ -1,3 +1,2 @@
 #!/bin/bash -e
-cd /opt/app/data/www
-python3 -m http.server
+python3 -m http.server --directory /opt/app/data/www

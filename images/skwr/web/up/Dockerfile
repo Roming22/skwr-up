@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Make sure we don't get notifications we can't answer during building.
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,6 +17,7 @@ RUN groupadd -g 9999 user \
     && apt-get clean \
     && mkdir /opt/app \
     && chown user:user /opt/app
+
 USER user
 ENV PATH="/opt/app/bin:/home/user/.local/bin:/usr/local/bin:/usr/bin:/bin"
 
